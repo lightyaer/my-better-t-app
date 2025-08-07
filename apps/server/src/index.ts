@@ -13,11 +13,11 @@ app.use(logger());
 app.use(
   "/*",
   cors({
-    origin: process.env.CORS_ORIGIN || "",
-    allowMethods: ["GET", "POST", "OPTIONS"],
+    origin: "*",
+    allowMethods: ["GET", "POST", "OPTIONS", "HEAD", "PUT", "DELETE"],
     allowHeaders: ["Content-Type", "Authorization"],
     credentials: true,
-  }),
+  })
 );
 
 app.on(["POST", "GET"], "/api/auth/**", (c) => auth.handler(c.req.raw));
