@@ -12,9 +12,16 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
   },
+
   advanced: {
+    defaultCookieAttributes: {
+      sameSite: "none",
+      secure: true,
+      partitioned: true, // New browser standards will mandate this for foreign cookies
+    },
     crossSubDomainCookies: {
       enabled: true,
+      domains: [process.env.CORS_ORIGIN || ""],
     },
   },
   secret: process.env.BETTER_AUTH_SECRET,

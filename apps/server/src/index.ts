@@ -40,4 +40,6 @@ app.get("/", (c) => {
   return c.text("OK");
 });
 
+console.log(process.env);
+
 export default app;
