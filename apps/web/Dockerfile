@@ -16,7 +16,6 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=deps /app/apps/web/node_modules ./apps/web/node_modules
 COPY apps/web ./apps/web
-COPY apps/server/tsconfig.json ./apps/server/tsconfig.json
 
 # Pass server URL at build time for import.meta.env.VITE_SERVER_URL if provided
 ARG VITE_SERVER_URL
